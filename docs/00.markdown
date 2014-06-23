@@ -1,0 +1,14 @@
+---
+out: index.html
+---
+
+digi-lib-jfx4swt-8
+==================
+
+JFX4SWT-8 - Java 8 JavaFX library adapter for SWT framework.
+
+<hr/>
+
+> [Latest stable version - UNKNOWN]($stable$)
+
+> [Latest development version - UNKNOWN]($development$)
