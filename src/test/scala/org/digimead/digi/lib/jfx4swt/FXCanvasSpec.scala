@@ -129,7 +129,7 @@ class FXCanvasSpec extends FreeSpec with Matchers with LoggingHelper {
     println(s"Total: ${len / 1000} ${buf.length} frames at ${buf.length / (len / 1000)} fps")
   }
 
-  "Static StackedAreaChart should be fine" ignore {
+  "Static StackedAreaChart should be fine" in {
     val buf = new mutable.ArrayBuffer[Long] with mutable.SynchronizedBuffer[Long]
     Display.getDefault().asyncExec {
       new Runnable {
@@ -190,7 +190,7 @@ class FXCanvasSpec extends FreeSpec with Matchers with LoggingHelper {
     //println(s"Total: ${len / 1000} ${buf.length} frames at ${buf.length / (len / 1000)} fps")
   }
 
-  "Scene without size should be fine" ignore {
+  "Scene without size should be fine" in {
     val latch = new CountDownLatch(1)
     @volatile var adapter1: FXAdapter = null
     Display.getDefault().asyncExec {
