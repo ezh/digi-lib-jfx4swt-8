@@ -113,7 +113,7 @@ class FXHost8(adapter: WeakReference[FXAdapter]) extends FXHost(adapter) {
             Future { // Memory overhead is minimal.
               // 2. Convert pixelsBuf to imageData and save it to empty frame.
               pipeLock.lock()
-              if (!disposed) try {
+              if (pipeBuf != null) try {
                 destinationPointer = 0
                 sourcePointer = 0
                 for (y ← 0 until toDrawHeight) {
