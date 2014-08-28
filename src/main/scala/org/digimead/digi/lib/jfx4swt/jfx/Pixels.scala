@@ -28,13 +28,7 @@ class Pixels(width: Int, height: Int, data: IntBuffer, scale: Float) extends JFX
   def this(width: Int, height: Int, data: ByteBuffer) = this(width, height, null, 1)
   def this(width: Int, height: Int, data: IntBuffer) = this(width, height, data, 1)
 
-  protected def _attachByte(x$1: Long, x$2: Int, x$3: Int, x$4: java.nio.ByteBuffer, x$5: Array[Byte], x$6: Int) {
-    //TODO - not implemented
-  }
-  protected def _attachInt(x$1: Long, x$2: Int, x$3: Int, x$4: java.nio.IntBuffer, x$5: Array[Int], x$6: Int) {
-    //TODO - not implemented
-  }
-  protected def _fillDirectByteBuffer(bb: java.nio.ByteBuffer) {
-    //TODO - not implemented
-  }
+  protected def _attachByte(x$1: Long, x$2: Int, x$3: Int, x$4: java.nio.ByteBuffer, x$5: Array[Byte], x$6: Int) {}
+  protected def _attachInt(x$1: Long, x$2: Int, x$3: Int, x$4: java.nio.IntBuffer, x$5: Array[Int], x$6: Int) {}
+  protected def _fillDirectByteBuffer(bb: java.nio.ByteBuffer) {}
 }

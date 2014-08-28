@@ -46,14 +46,19 @@ class JFXApplication8 extends JFXApplication {
   def createView(): View = new jfx.View()
   def createWindow(owner: Window, screen: Screen, styleMask: Int): Window = new jfx.Window(owner, screen, styleMask)
   def createWindow(parent: Long): Window = ???
-  override protected def finishTerminating() {}
-  override protected def shouldUpdateWindow(): Boolean = ???
-  protected def _enterNestedEventLoop(): AnyRef = ???
+
+  /*
+   * Publish protected members.
+   */
+  override def finishTerminating() {}
+  override def shouldUpdateWindow(): Boolean = ???
+  def _enterNestedEventLoop(): AnyRef = ???
+  def _getKeyCodeForChar(c: Char): Int = 0
   /**
    * Block the current thread and wait until the given  runnable finishes
    * running on the native event loop thread.
    */
-  protected def _invokeAndWait(runnable: Runnable): Unit = {
+  def _invokeAndWait(runnable: Runnable): Unit = {
     val completeLatch = new CountDownLatch(1)
     JFX.offer(new Runnable {
       def run {
@@ -67,12 +72,12 @@ class JFXApplication8 extends JFXApplication {
    * Schedule the given runnable to run on the native event loop thread
    * some time in the future, and return immediately.
    */
-  protected def _invokeLater(runnable: Runnable) = JFX.offer(runnable)
-  protected def _leaveNestedEventLoop(retValue: AnyRef) { ??? }
-  protected def _postOnEventQueue(runnable: Runnable): Unit = JFX.offer(runnable)
-  protected def _supportsTransparentWindows(): Boolean = false
-  protected def _supportsUnifiedWindows(): Boolean = false
-  protected def runLoop(launchable: Runnable) {
+  def _invokeLater(runnable: Runnable) = JFX.offer(runnable)
+  def _leaveNestedEventLoop(retValue: AnyRef) { ??? }
+  def _postOnEventQueue(runnable: Runnable): Unit = JFX.offer(runnable)
+  def _supportsTransparentWindows(): Boolean = false
+  def _supportsUnifiedWindows(): Boolean = false
+  def runLoop(launchable: Runnable) {
     JFX.offer(new Runnable {
       def run {
         val field = classOf[com.sun.glass.ui.Application].getDeclaredField("eventThread")
@@ -92,29 +97,29 @@ class JFXApplication8 extends JFXApplication {
       }
     })
   }
-  protected def staticCommonDialogs_showFileChooser(a1: Window, a2: String, a3: String, a4: Int, a5: Boolean, a6: Array[ExtensionFilter]) = null
-  protected def staticCommonDialogs_showFileChooser(a1: Window, a2: String, a3: String, a4: String, a5: Int, a6: Boolean, a7: Array[ExtensionFilter]) = null
-  protected def staticCommonDialogs_showFileChooser(a1: Window, a2: String, a3: String, a4: String, a5: Int, a6: Boolean, a7: Array[ExtensionFilter], a8: Int) = null
-  protected def staticCommonDialogs_showFolderChooser(a1: Window, a2: String, a3: String) = null
-  protected def staticCursor_getBestSize(width: Int, height: Int): Size = ???
-  protected def staticCursor_setVisible(visible: Boolean) = ???
-  protected def staticPixels_getNativeFormat(): Int = Pixels.Format.BYTE_BGRA_PRE
+  def staticCommonDialogs_showFileChooser(a1: Window, a2: String, a3: String, a4: Int, a5: Boolean, a6: Array[ExtensionFilter]) = null
+  def staticCommonDialogs_showFileChooser(a1: Window, a2: String, a3: String, a4: String, a5: Int, a6: Boolean, a7: Array[ExtensionFilter]) = null
+  def staticCommonDialogs_showFileChooser(a1: Window, a2: String, a3: String, a4: String, a5: Int, a6: Boolean, a7: Array[ExtensionFilter], a8: Int) = null
+  def staticCommonDialogs_showFolderChooser(a1: Window, a2: String, a3: String) = null
+  def staticCursor_getBestSize(width: Int, height: Int): Size = ???
+  def staticCursor_setVisible(visible: Boolean) = ???
+  def staticPixels_getNativeFormat(): Int = Pixels.Format.BYTE_BGRA_PRE
   /** Get deepest screen, but returns virtual. */
-  protected def staticScreen_getDeepestScreen() = JFXApplication.virtualScreen
+  def staticScreen_getDeepestScreen() = JFXApplication.virtualScreen
   /** Get main screen, but returns virtual. */
-  protected def staticScreen_getMainScreen() = JFXApplication.virtualScreen
+  def staticScreen_getMainScreen() = JFXApplication.virtualScreen
   /** Get screen for location, but returns virtual. */
-  protected def staticScreen_getScreenForLocation(x: Int, f: Int) = JFXApplication.virtualScreen
+  def staticScreen_getScreenForLocation(x: Int, f: Int) = JFXApplication.virtualScreen
   /** Get screen for pointer, but returns virtual. */
-  protected def staticScreen_getScreenForPtr(nativePtr: Long) = JFXApplication.virtualScreen
+  def staticScreen_getScreenForPtr(nativePtr: Long) = JFXApplication.virtualScreen
   /** Get all available screens. Actually there is single virtual screen. */
-  protected def staticScreen_getScreens() = Array(JFXApplication.virtualScreen)
-  protected def staticScreen_getVideoRefreshPeriod(): Double = 0.0
-  protected def staticTimer_getMaxPeriod(): Int = 1000000
-  protected def staticTimer_getMinPeriod(): Int = 0
-  protected def staticView_getMultiClickMaxX(): Int = ???
-  protected def staticView_getMultiClickMaxY(): Int = ???
-  protected def staticView_getMultiClickTime(): Long = ???
+  def staticScreen_getScreens() = Array(JFXApplication.virtualScreen)
+  def staticScreen_getVideoRefreshPeriod(): Double = 0.0
+  def staticTimer_getMaxPeriod(): Int = 1000000
+  def staticTimer_getMinPeriod(): Int = 0
+  def staticView_getMultiClickMaxX(): Int = ???
+  def staticView_getMultiClickMaxY(): Int = ???
+  def staticView_getMultiClickTime(): Long = ???
 }
 
 object JFXApplication8 {
