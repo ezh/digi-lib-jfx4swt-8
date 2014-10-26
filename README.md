@@ -3,7 +3,7 @@ digi-lib-jfx4swt-8 [![Build Status](https://travis-ci.org/ezh/digi-lib-jfx4swt-8
 
 JFX4SWT-8 - Java 8 JavaFX library adapter for SWT framework.
 
-Library requires a Java Runtime Environment (JRE) of version 8.0.
+__Library requires a Java Runtime Environment (JRE) of version 8.0.__
 
 AUTHORS
 -------
