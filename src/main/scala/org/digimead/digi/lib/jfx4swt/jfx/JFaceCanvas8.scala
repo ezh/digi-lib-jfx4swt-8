@@ -35,7 +35,7 @@ class JFaceCanvas8(host: WeakReference[FXHost]) extends JFaceCanvas(host) {
     lock.synchronized {
       val embeddedStage = impl_peer
       val embeddedScene = Option(getScene()).map(_.impl_getPeer()) getOrElse null
-      hide()
+      try hide() catch { case e: Throwable ⇒ }
       if (embeddedStage != null) {
         embeddedStage.setVisible(false)
         embeddedStage.setScene(null)

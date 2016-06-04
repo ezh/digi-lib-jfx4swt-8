@@ -22,6 +22,7 @@ package org.digimead.digi.lib.jfx4swt.jfx
 
 import com.sun.javafx.embed.{ EmbeddedSceneInterface, EmbeddedStageInterface }
 import com.sun.javafx.tk.{ TKDragGestureListener, TKDragSourceListener, TKDropTargetListener, TKScene, TKStage }
+import java.lang.reflect.InvocationTargetException
 import java.nio.IntBuffer
 import java.util.concurrent.locks.ReentrantLock
 import javafx.application.Platform
@@ -197,6 +198,20 @@ class FXHost8(adapter: WeakReference[FXAdapter]) extends FXHost(adapter) {
     try {
       if (this.scene != null)
         disposeEmbeddedScene()
+      if (scene != null)
+        // King regards to Empire_Phoenix from hub.jmonkeyengine.org
+        // 8_u60 and later fix
+        try {
+          val scaler = scene.getClass().getMethod("setPixelScaleFactor", java.lang.Float.TYPE)
+          scaler.setAccessible(true)
+          scaler.invoke(scene, 1f: java.lang.Float)
+        } catch {
+          case e: IllegalAccessException ⇒
+          case e: IllegalArgumentException ⇒
+          case e: InvocationTargetException ⇒
+          case e: NoSuchMethodException ⇒
+          case e: SecurityException ⇒
+        }
       dataToConvert = 0
       destinationPointer = 0
       rawPixelsBuf = null

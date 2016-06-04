@@ -46,6 +46,7 @@ class View() extends JFXView() {
   protected def _end(pointer: Long): Unit = {}
   protected def _enterFullscreen(pointer: Long, animate: Boolean, keepRatio: Boolean, hideCursor: Boolean): Boolean = true
   protected def _exitFullscreen(pointer: Long, animate: Boolean) {}
+  protected def _getNativeFrameBuffer(pointer: Long): Int = 0
   protected def _getNativeView(pointer: Long) = pointer
   protected def _getX(pointer: Long): Int = 0
   protected def _getY(pointer: Long): Int = 0
