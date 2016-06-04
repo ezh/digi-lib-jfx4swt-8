@@ -80,10 +80,10 @@ libraryDependencies ++= {
   }
   val artifact = "org.eclipse.swt." + os
   Seq(
-    "org.eclipse.swt" % artifact % "4.2.1" % "compileonly",
-    "org.eclipse.swt" % artifact % "4.2.1" % "test",
-    "org.digimead" %% "digi-lib-jfx4swt" % "0.1.0.9",
-    "org.digimead" %% "digi-lib-test" % "0.3.1.3" % "test"
+    "org.eclipse.swt" % artifact % "4.3" % "compileonly",
+    "org.eclipse.swt" % artifact % "4.3" % "test",
+    "org.digimead" %% "digi-lib-jfx4swt" % "0.1.0.10",
+    "org.digimead" %% "digi-lib-test" % "0.3.2.0" % "test"
   )
 }
 
